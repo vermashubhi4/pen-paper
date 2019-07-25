@@ -1,0 +1,44 @@
+.margin_left_5{
+  margin-left: 5px;
+}
+
+.info{
+  min-width: 40vw;
+  max-width: 40vw;
+  /* background-color: red; */
+  min-height: 80vh;
+  margin-top: 60px;
+  margin-left: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.signup{
+  min-width: 40vw;
+  min-height: 80vh;
+  max-height: 80vh;
+  /* background-color: blue; */
+}
+.input-field input[type=text]:focus + label {
+     color: #000;
+}
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+
+.input-field > label{
+        color:#000;
+   }
+
+.mybtn{
+  margin-left: 110px;
+}
+.mycontainer{
+  margin: 50px;
+  padding: 50px;
+}
+
+.margin_left_50{
+  margin-left: 50px;
+}
