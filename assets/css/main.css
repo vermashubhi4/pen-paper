@@ -16,8 +16,8 @@
 .signup{
   min-width: 40vw;
   min-height: 80vh;
-  max-height: 80vh;
-  /* background-color: blue; */
+  max-height: inherit;
+  /* background-color: blue;  */
 }
 .input-field input[type=text]:focus + label {
      color: #000;
@@ -31,13 +31,38 @@
         color:#000;
    }
 
-.mybtn{
+.mysignupbtn{
   margin-left: 110px;
 }
-.mycontainer{
+.mysigninbtn{
+
+}
+.mycontainer1{
   margin: 50px;
   padding: 50px;
+  text-align: center;
 }
+.mycontainer2{
+  max-width: 45vw;
+  margin-top: 70px;
+  padding: 50px;
+  text-align: center;
+}
+
+/* .mycontainer2{
+  margin: 0 auto;
+  width: 210px;
+} */
+/* .form label{
+		display: inline-block;
+		text-align: right;
+		float: left;
+	}
+	.form input{
+		display: inline-block;
+		text-align: left;
+		float: right;
+	} */
 
 .margin_left_50{
   margin-left: 50px;
