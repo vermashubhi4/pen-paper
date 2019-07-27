@@ -49,7 +49,8 @@
   margin-bottom: 15px;
 }
 .mysigninbtn{
-
+  text-align: center;
+  margin-bottom: 15px;
 }
 .mycontainer1{
   max-width:450px;
@@ -67,10 +68,19 @@
 box-shadow: 0px 3px 8px rgb(100,100,100);
 }
 .mycontainer2{
-  max-width: 45vw;
-  margin-top: 70px;
-  padding: 50px;
+  max-width:450px;
+  margin: auto;
+  /* border: 3px solid #73AD21; */
+  margin: 50px;
+  padding: 10% 0;
   text-align: center;
+  width: 100px;
+  border: 2px solid #000;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -moz-box-shadow: 0px 3px 8px rgb(100,100,100);
+-webkit-box-shadow: 0px 3px 8px rgb(100,100,100);
+box-shadow: 0px 3px 8px rgb(100,100,100);
 }
 
 /* .mycontainer2{
@@ -87,7 +97,28 @@ box-shadow: 0px 3px 8px rgb(100,100,100);
 		text-align: left;
 		float: right;
 	} */
-
-.margin_left_50{
-  margin-left: 50px;
+.first_section{
+ min-width: 30vw;
+ max-width: 30vw;
+ /* background-color: red; */
+ min-height: 80vh;
+ max-height: 80vh;
+ /* float: left; */
 }
+.second_section{
+  padding: 5% 0;
+ min-width: 60vw;
+ max-width: 60vw;
+ min-height: 80vh;
+ max-height: 80vh;
+ /* background-color: blue; */
+ width: 50%;
+ margin: 0 auto;
+}
+/* .third_section{
+  min-width: 10vw;
+  max-width: 10vw;
+  min-height: 80vh;
+  max-height: 80vh;
+  background-color: red;
+} */
