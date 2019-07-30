@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  if(isset($_SESSION["USERNAME"]))
+  header("Location:profile.php");
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -24,35 +29,44 @@
 
     <div class="left info ">
       <div class=" inside_info">
-        Write down your musings using ink-less pen on paper-less paper.
+        <h3>Welcome to the world of</h3> <h2>ink-less pen & paper-less paper.</h2>
       </div>
     </div>
     <div class="right signup">
       <div class="row">
- <form class="container col s12 blue-grey lighten-5 mycontainer1">
+ <form class="container col s12 blue-grey lighten-5 mycontainer1" name="signupform" action="signup_action.php" method="post" >
   <div class="row">
     <div class="input-field col s8 offset-s2 ">
-      <input id="username" type="text" class="validate">
+      <input id="username" name="username" type="text" class="validate" required autocomplete="username">
       <label for="username">USERNAME</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s8 offset-s2">
-      <input id="email" type="email" class="validate">
+      <input id="email" name="email" type="email" class="validate" required autocomplete="email">
       <label for="email">EMAIL</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s8 offset-s2">
-      <input id="password" type="password" class="validate">
+      <input id="password" name="password" type="password" class=" validate" required autocomplete="password">
       <label for="password">PASSWORD</label>
     </div>
   </div>
-  <a class="waves-effect waves-light btn mysignupbtn">SIGN UP</a>
+  <input  class="waves-effect waves-light btn mysignupbtn" type="submit" name="signup" value="SIGN UP">
 </form>
 </div>
 
-    </div>
+  </div>
+
+  <?php
+    if(isset($msg)){
+   ?>
+   <script type="text/javascript">
+     alert("<?php echo $_GET['msg'] ?>");
+   </script>
+
+ <?php } ?>
 
   <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
   </body>
