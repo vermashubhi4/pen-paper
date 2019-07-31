@@ -3,7 +3,6 @@
   if(isset($_SESSION["USERNAME"]))
   header("Location:profile.php");
  ?>
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -19,8 +18,8 @@
         <div class="nav-wrapper cyan darken-4 mynavbar">
           <a href="#!" class="brand-logo margin_left_5">PEN-PAPER</a>
           <ul class="right">
-            <li><a href="signin.html">Sign In</a></li>
-            <li><a href="index.html">Sign Up</a></li>
+            <li><a href="signin.php">Sign In</a></li>
+            <li><a href="index.php" >Sign Up</a></li>
           </ul>
         </div>
       </nav>

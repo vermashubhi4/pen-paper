@@ -13,6 +13,7 @@
 .input-field > label{
         color:#000;
    }
+
 /*global end*/
 
 
@@ -135,20 +136,23 @@ span.psw {
 /*profile.html start*/
 
 .userinfo{
+  border-right: 2px solid grey;
   min-width:30vw;
   max-width: 30vw;
-  min-height: 70vh;
-  max-height: 70vh;
+  height: 100%;
   margin: 0 auto;
-  /* background-color: red; */
+  position: fixed;
+  overflow-y: hidden;
+  z-index: 100;
+  /* background-color: red !important; */
 }
 .userpost{
-  min-width:50vw;
-  max-width: 50vw;
-  min-height: 70vh;
-  max-height: 70vh;
+  min-width: 100%;
+  min-height: 100%;
+  padding-left: 35%;
+  padding-top: 10%;
   margin: 0 auto;
-  /* background-color: blue; */
+  /* background-color: blue !important; */
 }
 .avatar{
 vertical-align: middle;
@@ -165,10 +169,10 @@ vertical-align: middle;
 .bio{
   margin-left: 25px;
 }
-.vl {
-  border-left: 2px solid grey;
+/* .vl {
+
   height: 560px;
   position:absolute;
   left: 35%;
-}
+} */
 /*profile.html end*/

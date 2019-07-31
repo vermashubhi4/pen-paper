@@ -15,7 +15,7 @@ if(isset($uname) && isset($email) && isset($pass))
     else {
       echo "Error: " . $qry . "<br>" . mysqli_error($con);
     }
-    header("Location:signin.html");
+    header("Location:signin.php");
 }
 else{
   $msg="ENTER CORRECT VALUES";

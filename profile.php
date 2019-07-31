@@ -3,7 +3,6 @@
   if(!isset($_SESSION["USERNAME"]))
   header("Location:signin.php");
  ?>
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -27,7 +26,7 @@
 
 <div class="left userinfo">
 
-  <img src="assets/images/profilepic.png" alt="Avatar" class="avatar">
+  <img src="assets/images/profilepic.png" alt="Avatar" class="circle avatar">
   <a class="waves-effect waves-light btn">edit</a>
   <br>
   <h6 id="uname">Hello, Verma_5</h6>
@@ -37,12 +36,14 @@
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."<span></p>
 </div>
-<div class="center">
+<!-- <div class="center">
   <div class="vl">
   </div>
+</div> -->
+<div class="userpost">
+<div class="posts">
+  gxjhaska
 </div>
-<div class="right userpost">
-
 </div>
 
   </body>
