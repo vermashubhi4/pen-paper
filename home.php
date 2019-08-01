@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+  session_start();
+  if(!isset($_SESSION["USERNAME"]))
+  header("Location:signin.php");
+ ?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -13,11 +17,12 @@
         <div class="nav-wrapper cyan darken-4 mynavbar">
           <a href="#!" class="brand-logo margin_left_5">PEN-PAPER</a>
           <ul class="right">
-            <li><a href="signin.html">Log Out</a></li>
+            <li><a href="signin.php">Log Out</a></li>
           </ul>
         </div>
       </nav>
     </div>
+
     <!-- Navigation bar ending -->
   </body>
 </html>

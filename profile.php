@@ -26,15 +26,15 @@
 
 <div class="left userinfo">
 
-  <img src="assets/images/profilepic.png" alt="Avatar" class="circle avatar">
+  <img src="assets/images/profilepic.png" alt="Avatar" class="circle avatar" >
   <a class="waves-effect waves-light btn">edit</a>
   <br>
-  <h6 id="uname">Hello, Verma_5</h6>
+  <h6 id="uname">Hello, <span name='uname' id='username'><?php  echo $_SESSION["USERNAME"] ?> </span></h6>
   <p class="bio"><span id="bio">"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."<span></p>
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</span></p>
 </div>
 <!-- <div class="center">
   <div class="vl">
@@ -42,7 +42,17 @@
 </div> -->
 <div class="userpost">
 <div class="posts">
-  gxjhaska
+  <div class="row">
+    <form action="post_action.php" method="post" class="col s12">
+      <div class="row">
+        <div class="input-field col s10">
+          <textarea name="textarea1" id="textarea1" class="materialize-textarea"></textarea>
+          <!-- <label for="textarea1">Textarea</label> -->
+        </div>
+      </div>
+      <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="post" value="Post">
+    </form>
+  </div>
 </div>
 </div>
 

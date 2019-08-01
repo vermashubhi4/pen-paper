@@ -25,10 +25,10 @@
       </nav>
     </div>
     <!-- Navigation bar ending -->
-<div class="left first_section">
+<!-- <div class="left first_section">
 
-</div>
-<div class="center second_section">
+</div> -->
+<div class="second_section">
     <div class="container">
       <div class="row">
  <form class="col s12 blue-grey lighten-5 mycontainer2" name="signinform" action="signin_action.php" method="post">

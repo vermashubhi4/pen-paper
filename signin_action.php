@@ -16,7 +16,7 @@ include 'dbconnect.php';
      session_start();
      $_SESSION["USERNAME"]=$uname;
 
-     header("Location:profile.php");
+     header("Location:profile.php?uname: ".$uname);
    }
    else{
      $msg="Invalid Arguments";
