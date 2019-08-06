@@ -4,6 +4,8 @@ include 'dbconnect.php';
  $uname=$_SESSION["USERNAME"];
  // echo $uname;
  $posts=$_POST['textarea1'];
+ // $uname="verma_5";
+ // $posts="sabxkbkcqkwclw k";
  if(isset($posts) && isset($uname))
  {
    $qry= "INSERT INTO `userposts`(`username`, `posts`) VALUES ('$uname','$posts')";
@@ -13,7 +15,13 @@ include 'dbconnect.php';
      else {
        echo "Error: " . $qry . "<br>" . mysqli_error($con);
      }
-      header("Location:home.php?msg: ".$posts);
+   // $qry2= "SELECT `posts` FROM `userposts` WHERE `username`='$uname'";
+   // $result2=mysqli_query($conn,$qry2);
+
+
+
+
+      header("Location:profile.php?msg: ".$posts);
  }
  else {
    echo 'Input some posts';

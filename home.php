@@ -22,7 +22,28 @@
         </div>
       </nav>
     </div>
-
     <!-- Navigation bar ending -->
+<!-- <div class="postsonhome">
+  <table class="center">
+
+  <tbody>
+    <tr>
+      <td>"
+      <span>
+      <?php if(isset($_GET['posts'])){
+        echo $posts;
+      } ?>
+      </span>
+      "</td>
+    </tr>
+    <tr>
+      <td>Alan</td>
+    </tr>
+    <tr>
+      <td>Jonathan</td>
+    </tr>
+  </tbody>
+  </table>
+</div> -->
   </body>
 </html>

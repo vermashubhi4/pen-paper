@@ -1,4 +1,5 @@
 <?php
+ include 'dbconnect.php';
   session_start();
   if(!isset($_SESSION["USERNAME"]))
   header("Location:signin.php");
@@ -50,11 +51,55 @@
           <!-- <label for="textarea1">Textarea</label> -->
         </div>
       </div>
-      <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="post" value="Post">
+      <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="post" value="Post" onclick="showpost()" >
     </form>
   </div>
-</div>
+  <div class="row">
+    <div class="col s10" id="new_post">
+dguqdblqkqax
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s10" id="new_post">
+dguqdblqkqax
+    </div>
+  </div>
 </div>
 
+<?php
+ $uname=$_SESSION["USERNAME"];
+$qry2="SELECT `posts` FROM `userposts` WHERE `username`='$uname'";
+$result2=mysqli_query($conn,$qry2);
+if($result2)
+   echo"true";
+  else {
+    echo "Error: " . $qry2 . "<br>" . mysqli_error($conn);
+  }
+if (mysqli_num_rows($result2) > 0) {
+         while($row = mysqli_fetch_assoc($result2)) {
+          //  echo $row["posts"]. "<br>";
+ ?>
+
+ <script type="text/javascript">
+ var iDiv = document.createElement('div');
+ iDiv.id = 'new_post';
+ iDiv.className = 'row';
+ document.getElementsByTagName('body')[0].appendChild(iDiv);
+
+ // Now create and append to iDiv
+ var innerDiv = document.createElement('div');
+ innerDiv.className = 'col s10';
+
+ // The variable iDiv is still good... Just append to it.
+ iDiv.appendChild(innerDiv);
+
+ innerDiv.innerHTML=<?php echo $row["posts"]. "<br>"; ?>;
+ </script>
+
+ <?php
+       }
+     }
+  ?>
+  </div>
   </body>
 </html>

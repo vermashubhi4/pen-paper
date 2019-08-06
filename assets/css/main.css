@@ -175,3 +175,10 @@ vertical-align: middle;
 }
 
 /*profile.html end*/
+
+
+/* home.php start */
+.postsonhome{
+  max-width: 450px;
+}
+/* home.php */
