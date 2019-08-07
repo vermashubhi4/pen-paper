@@ -59,11 +59,6 @@
 dguqdblqkqax
     </div>
   </div>
-  <div class="row">
-    <div class="col s10" id="new_post">
-dguqdblqkqax
-    </div>
-  </div>
 </div>
 
 <?php

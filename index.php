@@ -52,7 +52,11 @@
       <label for="password">PASSWORD</label>
     </div>
   </div>
-  <input  class="waves-effect waves-light btn mysignupbtn" type="submit" name="signup" value="SIGN UP">
+  <button class="btn waves-effect waves-light mysignupbtn" type="submit" name="signup" value="SIGN UP">SIGN UP
+    <!-- <i class="material-icons right">send</i> -->
+  </button>
+
+  <!-- <input class="waves-effect waves-light btn mysignupbtn" type="submit" name="signup" value="SIGN UP"> -->
 </form>
 </div>
 

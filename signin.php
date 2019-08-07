@@ -46,7 +46,10 @@
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </div>
-  <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="signin" value="SIGN IN">
+  <button class="btn waves-effect waves-light mysigninbtn" type="submit" name="signin" value="SIGN IN">SIGN IN
+    <!-- <i class="material-icons right">send</i> -->
+  </button>
+  <!-- <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="signin" value="SIGN IN"> -->
 </form>
 </div>
 
