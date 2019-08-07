@@ -47,11 +47,11 @@
     <form action="post_action.php" method="post" class="col s12">
       <div class="row">
         <div class="input-field col s10">
-          <textarea name="textarea1" id="textarea1" class="materialize-textarea"></textarea>
+          <textarea name="textarea1" id="textarea1" class="materialize-textarea" onkeyup="stoppedTyping()"></textarea>
           <!-- <label for="textarea1">Textarea</label> -->
         </div>
       </div>
-      <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="post" value="Post" onclick="showpost()" >
+      <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="post" value="Post" id="post" onclick="verify()" disabled>
     </form>
   </div>
   <div class="row">
@@ -71,16 +71,16 @@ dguqdblqkqax
 $qry2="SELECT `posts` FROM `userposts` WHERE `username`='$uname'";
 $result2=mysqli_query($conn,$qry2);
 if($result2)
-   echo"true";
-  else {
+   echo "";
+else {
     echo "Error: " . $qry2 . "<br>" . mysqli_error($conn);
   }
 if (mysqli_num_rows($result2) > 0) {
          while($row = mysqli_fetch_assoc($result2)) {
-          //  echo $row["posts"]. "<br>";
+            echo $row["posts"]. "<br>";}}
  ?>
 
- <script type="text/javascript">
+ <!-- <script type="text/javascript">
  var iDiv = document.createElement('div');
  iDiv.id = 'new_post';
  iDiv.className = 'row';
@@ -93,13 +93,29 @@ if (mysqli_num_rows($result2) > 0) {
  // The variable iDiv is still good... Just append to it.
  iDiv.appendChild(innerDiv);
 
- innerDiv.innerHTML=<?php echo $row["posts"]. "<br>"; ?>;
- </script>
+ innerDiv.innerHTML=;
+ </script>-->
 
- <?php
-       }
-     }
-  ?>
   </div>
+
+  <script type="text/javascript">
+    function stoppedTyping(){
+        if(document.getElementById('textarea1')!= "") {
+            document.getElementById('post').disabled = false;
+        } else {
+            document.getElementById('post').disabled = true;
+        }
+    }
+    function verify(){
+        if (document.getElementById('textarea1')==""){
+            alert ("Put some text in there!")
+            return
+        }
+        else{
+             document.getElementById('post').disabled = false;
+        }
+    }
+</script>
+
   </body>
 </html>
