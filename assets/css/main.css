@@ -173,6 +173,10 @@ vertical-align: middle;
 .bio{
   margin-left: 25px;
 }
+#textarea1{
+  overflow: auto;
+  /* resize: none; */
+}
 
 /*profile.html end*/
 

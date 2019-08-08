@@ -47,23 +47,29 @@
     <form action="post_action.php" method="post" class="col s12">
       <div class="row">
         <div class="input-field col s10">
-          <textarea name="textarea1" id="textarea1" class="materialize-textarea" onkeyup="stoppedTyping()"></textarea>
+          <!-- <i class="material-icons prefix">mode_edit</i>
+          <textarea name="textarea1" id="icon_prefix2" class="materialize-textarea" onkeyup="stoppedTyping()"></textarea>
+          <label for="icon_prefix2">First Name</label> -->
+          <textarea name="textarea1" rows="10" cols="30"  id="textarea1" onkeyup="stoppedTyping()"></textarea>
+           <!-- class="materialize-textarea" removed -->
           <!-- <label for="textarea1">Textarea</label> -->
         </div>
       </div>
       <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="post" value="Post" id="post" onclick="verify()" disabled>
     </form>
   </div>
-  <div class="row">
+  <!-- <textarea placeholder="Remember, be nice!" cols="30" rows="5"></textarea> -->
+
+  <!-- <div class="row">
     <div class="col s10" id="new_post">
 dguqdblqkqax
     </div>
-  </div>
+  </div> -->
 </div>
 
 <?php
  $uname=$_SESSION["USERNAME"];
-$qry2="SELECT `posts` FROM `userposts` WHERE `username`='$uname'";
+$qry2="SELECT `posts` FROM `userposts` WHERE `username`='$uname' ORDER BY `Post_id` DESC";
 $result2=mysqli_query($conn,$qry2);
 if($result2)
    echo "";
@@ -71,15 +77,19 @@ else {
     echo "Error: " . $qry2 . "<br>" . mysqli_error($conn);
   }
 if (mysqli_num_rows($result2) > 0) {
+   // array_reverse($result2);
+
          while($row = mysqli_fetch_assoc($result2)) {
-            echo $row["posts"]. "<br>";}}
+          //  echo $row["posts"]. "<br>";}}
  ?>
 
- <!-- <script type="text/javascript">
+ <script type="text/javascript">
+ var i
  var iDiv = document.createElement('div');
  iDiv.id = 'new_post';
  iDiv.className = 'row';
- document.getElementsByTagName('body')[0].appendChild(iDiv);
+ var x=document.getElementsByClassName('userpost');
+ x[0].appendChild(iDiv);
 
  // Now create and append to iDiv
  var innerDiv = document.createElement('div');
@@ -88,8 +98,13 @@ if (mysqli_num_rows($result2) > 0) {
  // The variable iDiv is still good... Just append to it.
  iDiv.appendChild(innerDiv);
 
- innerDiv.innerHTML=;
- </script>-->
+ innerDiv.innerHTML="<?php echo $row['posts'];?>";
+
+ </script>
+<?php
+ }
+}
+?>
 
   </div>
 
