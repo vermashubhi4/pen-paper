@@ -27,15 +27,41 @@
 
 <div class="left userinfo">
 
-  <img src="assets/images/profilepic.png" alt="Avatar" class="circle avatar" >
-  <a class="waves-effect waves-light btn">edit</a>
-  <br>
+  <!-- <img src="assets/images/profilepic.png" alt="Avatar" class="circle avatar " >
+  <input class="waves-effect waves-light btn " name="post" value="Edit" id="changeProfilePicbtn" onclick="document.getElementById('file-input').click();">
+  <button onclick="document.getElementById('file-input').click();">Open</button>
+ <input id="file-input" type="file" name="name" style="display: none;" /> -->
+ <div class="avatar" id="avatar">
+
+ </div>
+
+ <form method="post" action="edit_profile.php" enctype="multipart/form-data">
+   <input type="file" name="file" >
+   <input type="submit" value="Upload image" name="upload" >
+ </form>
+ <?php
+
+ if(isset($pp))
+ {
+ ?>
+ <script type="text/javascript">
+ // <img src='" .$row['profilepic']."' />;
+ document.getElementById('avatar').innerHTML="xhdbqadkbjlq";
+   document.getElementById('avatar').innerHTML= "<?php echo "<img src='".$_GET['pp']."' />"; ?>";
+ </script>
+ <?php
+ }
+ ?>
   <h6 id="uname">Hello, <span name='uname' id='username'><?php  echo $_SESSION["USERNAME"] ?> </span></h6>
+
   <p class="bio"><span id="bio">"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</span></p>
+
+    <input class="waves-effect waves-light btn editbtn" type="submit" name="post" value="Edit" id="edit">
+
 </div>
 <!-- <div class="center">
   <div class="vl">

@@ -171,13 +171,17 @@ vertical-align: middle;
   margin-top: 10px;
 }
 .bio{
-  margin-left: 25px;
+  margin-left: 15px;
 }
 #textarea1{
   overflow: auto;
   /* resize: none; */
 }
-
+#editbtn{
+  margin-left: 50px;
+  /* padding-left: 50px; */
+  align-items: center;
+}
 /*profile.html end*/
 
 

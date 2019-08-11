@@ -5,10 +5,11 @@ include 'dbconnect.php';
 $uname=$_POST["username"];
 $email=$_POST["email"];
 $pass=$_POST["password"];
+$defaultprofilepic="assets/images/profilepic.png";
 
 if(isset($uname) && isset($email) && isset($pass))
 {
-  $qry = "INSERT INTO `userinfo`(`username`, `email`, `password`) VALUES ('$uname','$email', '$pass')";
+  $qry = "INSERT INTO `userinfo`(`username`, `email`, `password`,`profilepic`) VALUES ('$uname','$email', '$pass','$defaultprofilepic')";
   $result = mysqli_query($conn,$qry);
   if($result)
      echo"true";
