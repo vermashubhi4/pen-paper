@@ -14,16 +14,33 @@
     move_uploaded_file($file_temp_loc,$file_store);
     $qry = "UPDATE `userinfo` SET `profilepic`='$file_store' WHERE `username`='$uname'";
     $result=mysqli_query($conn,$qry);
-    $qry2="SELECT `profilepic` FROM `userinfo` WHERE `username`='$uname'";
-    $result2=mysqli_query($conn,$qry2);
-    $row=mysqli_fetch_assoc($result2);
+    // $qry2="SELECT `profilepic` FROM `userinfo` WHERE `username`='$uname'";
+    // $result2=mysqli_query($conn,$qry2);
+    // $row=mysqli_fetch_assoc($result2);
+    //
+    //  if($result2){
+    //    echo $row['profilepic'];
+    //    print_r($row['profilepic']);
+    //    echo "<img src='".$row['profilepic']."' />";
+    //    $pp=$row['profilepic'];
+    //
+    //  }
+    //  else {
+    //    echo "wtf";
+    //  }
     // print_r($file);
+     header("Location:profile.php?uname: ".$uname."?profilepic: ". $pp);
+  }
 
+
+  if(isset($_POST['editbio']))
+  {
+    $bio=$_POST['editbio'];
+    session_start();
+    $uname=$_SESSION["USERNAME"];
+    $qry = "UPDATE `userinfo` SET `bio`='$bio' WHERE `username`='$uname'";
+    $result=mysqli_query($conn,$qry);
+    header("Location:profile.php?uname: ".$uname."?profilepic: ". $pp);
+
+  }
  ?>
-  <script type="text/javascript">
-    document.getElementById('avatar').innerHTML= <?php  echo "<img src='".$row['profilepic']."' />";?>;
-  </script>
-
-<?php
-header("Location:profile.php");
- } ?>

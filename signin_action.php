@@ -17,19 +17,20 @@ include 'dbconnect.php';
      $_SESSION["USERNAME"]=$uname;
 
 
-     $qry2="SELECT `profilepic` FROM `userinfo` WHERE `username`='$uname'";
-     $result2=mysqli_query($conn,$qry2);
-     $row=mysqli_fetch_assoc($result2);
-      if($result2){
-        echo $row['profilepic'];
-        print_r($row['profilepic']);
-        echo "<img src='".$row['profilepic']."' />";
-        $pp=$row['profilepic'];
+     // $qry2="SELECT `profilepic` FROM `userinfo` WHERE `username`='$uname'";
+     // $result2=mysqli_query($conn,$qry2);
+     // $row=mysqli_fetch_assoc($result2);
+     //  if($result2){
+     //    echo $row['profilepic'];
+     //    print_r($row['profilepic']);
+     //    echo "<img src='".$row['profilepic']."' />";
+     //    $pp=$row['profilepic'];
+     //    echo "<img src='".$pp."' />";
         header("Location:profile.php?uname: ".$uname."?profilepic: ". $pp);
-      }
-      else {
-        echo "wtf";
-      }
+      // }
+      // else {
+      //   echo "wtf";
+      // }
      }
     else{
            $msg="Invalid Arguments";

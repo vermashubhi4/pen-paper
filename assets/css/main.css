@@ -140,6 +140,7 @@ span.psw {
 /*profile.html start*/
 
 .userinfo{
+  padding-top: 10px;
   border-right: 2px solid grey;
   min-width:30vw;
   max-width: 30vw;
@@ -158,12 +159,17 @@ span.psw {
   margin: 0 auto;
   /* background-color: blue !important; */
 }
-.avatar{
+/* .avatar{
 vertical-align: middle;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   margin: 10px;
+} */
+
+#avatar{
+  margin: 15px;
+  padding: 10px;
 }
 #uname{
   vertical-align: middle;
@@ -182,6 +188,7 @@ vertical-align: middle;
   /* padding-left: 50px; */
   align-items: center;
 }
+
 /*profile.html end*/
 
 

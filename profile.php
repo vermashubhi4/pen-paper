@@ -10,6 +10,11 @@
     <title></title>
     <link rel="stylesheet" href="assets/materialize/css/materialize.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
   </head>
   <body>
     <!-- Navigation bar starting -->
@@ -27,29 +32,45 @@
 
 <div class="left userinfo">
 
-  <!-- <img src="assets/images/profilepic.png" alt="Avatar" class="circle avatar " >
+  <!-- <img src="upload/PhotoGrid_1467199291609.jpg" alt="Avatar" class="circle avatar " >
   <input class="waves-effect waves-light btn " name="post" value="Edit" id="changeProfilePicbtn" onclick="document.getElementById('file-input').click();">
   <button onclick="document.getElementById('file-input').click();">Open</button>
  <input id="file-input" type="file" name="name" style="display: none;" /> -->
- <div class="avatar" id="avatar">
 
- </div>
 
  <form method="post" action="edit_profile.php" enctype="multipart/form-data">
+   <div  id="avatar">
+     <!-- <img src="upload/PhotoGrid_1467199291609.jpg" alt="Avatar" class="circle avatar " > -->
+   </div>
    <input type="file" name="file" >
    <input type="submit" value="Upload image" name="upload" >
  </form>
  <?php
 
- if(isset($pp))
- {
+ $uname=$_SESSION["USERNAME"];
+ $qry2="SELECT `profilepic` FROM `userinfo` WHERE `username`='$uname'";
+ $result2=mysqli_query($conn,$qry2);
+ $row=mysqli_fetch_assoc($result2);
+  if($result2){
+    // echo $row['profilepic'];
+    // print_r($row['profilepic']);
+    // echo "<img src='".$row['profilepic']."' />";
+    $pp=$row['profilepic'];
+    // echo "<img src='".$pp."' />";
+ // if(isset($pp))
+ // {
+  // echo "<img src='".$pp."' />";
+
  ?>
  <script type="text/javascript">
  // <img src='" .$row['profilepic']."' />;
- document.getElementById('avatar').innerHTML="xhdbqadkbjlq";
-   document.getElementById('avatar').innerHTML= "<?php echo "<img src='".$_GET['pp']."' />"; ?>";
+ // document.getElementById('avatar').innerHTML="xhdbqadkbjlq";
+   document.getElementById('avatar').innerHTML= "<?php echo "<img src='".$pp."' class='circle' width='150px' height='150px' margin='5px' padding='5px'/>  "; ?>";
  </script>
  <?php
+ }
+ else {
+   echo "path not found";
  }
  ?>
   <h6 id="uname">Hello, <span name='uname' id='username'><?php  echo $_SESSION["USERNAME"] ?> </span></h6>
@@ -60,9 +81,20 @@
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</span></p>
 
-    <input class="waves-effect waves-light btn editbtn" type="submit" name="post" value="Edit" id="edit">
+    <!-- <input class="waves-effect waves-light btn editbtn" type="submit" name="post" value="Edit Bio" id="edit"> -->
 
-</div>
+    <!-- Modal Trigger -->
+    <button data-target="modal1" class="btn modal-trigger">EDIT</button>
+  <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">EDIT BIO</a> -->
+
+  </div>
+
+
+  <!-- <script type="text/javascript">
+     $(window).ready(function(){
+         $("#modal1").modal('show');
+     });
+  </script> -->
 <!-- <div class="center">
   <div class="vl">
   </div>
@@ -106,6 +138,7 @@ if (mysqli_num_rows($result2) > 0) {
    // array_reverse($result2);
 
          while($row = mysqli_fetch_assoc($result2)) {
+
           //  echo $row["posts"]. "<br>";}}
  ?>
 
@@ -151,6 +184,50 @@ if (mysqli_num_rows($result2) > 0) {
              document.getElementById('post').disabled = false;
         }
     }
+</script>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+
+  <div class="modal-content">
+        <textarea name="editbio" rows="10" cols="80"  ></textarea>
+  </div>
+  <div class="modal-footer">
+    <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="done" value="Done" id="Done"/>
+
+    <!-- <button class="btn modal-trigger">EDIT</button> -->
+    <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a> -->
+  </div>
+
+</div>
+
+<!-- <script type="text/javascript">
+  function stoppedTyping2(){
+      if(document.getElementById('textarea2')!= "") {
+          document.getElementById('post').disabled = false;
+      } else {
+          document.getElementById('post').disabled = true;
+      }
+  }
+  function verify2(){
+      if (document.getElementById('textarea2')==""){
+          alert ("Put some text in there!")
+          return
+      }
+      else{
+           document.getElementById('post').disabled = false;
+      }
+  }
+</script> -->
+
+<script type="text/javascript">
+ $('.modal').modal({
+   dismissible: true
+ });
+   $(document).ready(function(){
+       $("#modal1").modal('open');
+   });
+
 </script>
 
   </body>
