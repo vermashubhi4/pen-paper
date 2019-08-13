@@ -73,21 +73,87 @@
    echo "path not found";
  }
  ?>
-  <h6 id="uname">Hello, <span name='uname' id='username'><?php  echo $_SESSION["USERNAME"] ?> </span></h6>
+  <h6 id="uname">Hello, <span name='uname' id='username'><?php echo $_SESSION["USERNAME"] ?></span></h6>
+    <div class="row">
+       <div class="col s12" id="bio">
 
-  <p class="bio"><span id="bio">"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</span></p>
+       </div>
+    </div>
 
-    <!-- <input class="waves-effect waves-light btn editbtn" type="submit" name="post" value="Edit Bio" id="edit"> -->
-
-    <!-- Modal Trigger -->
-    <button data-target="modal1" class="btn modal-trigger">EDIT</button>
+    <button data-target="modal1" id="editbtn" class="btn waves-effect waves-light modal-trigger" name="edit" value="EDIT BIO">Edit Bio</button>
   <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">EDIT BIO</a> -->
 
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+
+      <div class="row">
+     <form action="edit_profile.php" method="post" class="col s12">
+       <div class="row">
+         <div class="input-field col s12">
+          <textarea name="textarea2" rows="10" cols="30"  id="textarea2" onkeyup="stoppedTyping2()"></textarea>
+         </div>
+       </div>
+    </div>
+    <div class="row">
+    <div class="modal-footer">
+      <button class="btn waves-effect waves-light mysigninbtn" type="submit" name="done" value="Done" id="done" onclick="verify2()" disabled>DONE</button>
+    </div>
+      </div>
+  </form>
+</div>
   </div>
+
+
+<?php
+  $uname=$_SESSION["USERNAME"];
+  $qry2="SELECT `bio` FROM `userinfo` WHERE `username`='$uname'";
+  $result2=mysqli_query($conn,$qry2);
+  $row=mysqli_fetch_assoc($result2);
+  if($result2){
+    $bio= $row['bio'];
+   ?>
+   <script type="text/javascript">
+     document.getElementById('bio').innerHTML= "<?php echo $bio; ?>";
+   </script>
+   <?php
+   }
+   else {
+     echo "path not found";
+   }
+   ?>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+  $('.modal').modal();
+   });
+
+   $(function() {
+     $('#editbtn').click(function() {
+       $('#modal1').modal('open');
+      });
+  });
+
+  </script>
+    </div>
+
+    <script type="text/javascript">
+      function stoppedTyping2(){
+          if(document.getElementById('textarea2')!= "") {
+              document.getElementById('done').disabled = false;
+          } else {
+              document.getElementById('done').disabled = true;
+          }
+      }
+      function verify2(){
+          if (document.getElementById('textarea2')==""){
+              alert ("Put some text in there!")
+              return
+          }
+          else{
+               document.getElementById('post').disabled = false;
+          }
+      }
+  </script>
 
 
   <!-- <script type="text/javascript">
@@ -113,8 +179,12 @@
           <!-- <label for="textarea1">Textarea</label> -->
         </div>
       </div>
-      <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="post" value="Post" id="post" onclick="verify()" disabled>
+      <button class="btn waves-effect waves-light mysigninbtn" type="submit" name="post" value="POST" id="post" onclick="verify()" disabled>POST
+        <!-- <i class="material-icons right">send</i> -->
+      </button>
+      <!-- <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="post" value="Post" id="post" onclick="verify()" disabled> -->
     </form>
+
   </div>
   <!-- <textarea placeholder="Remember, be nice!" cols="30" rows="5"></textarea> -->
 
@@ -187,19 +257,7 @@ if (mysqli_num_rows($result2) > 0) {
 </script>
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
 
-  <div class="modal-content">
-        <textarea name="editbio" rows="10" cols="80"  ></textarea>
-  </div>
-  <div class="modal-footer">
-    <input class="waves-effect waves-light btn mysigninbtn" type="submit" name="done" value="Done" id="Done"/>
-
-    <!-- <button class="btn modal-trigger">EDIT</button> -->
-    <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a> -->
-  </div>
-
-</div>
 
 <!-- <script type="text/javascript">
   function stoppedTyping2(){
@@ -220,15 +278,6 @@ if (mysqli_num_rows($result2) > 0) {
   }
 </script> -->
 
-<script type="text/javascript">
- $('.modal').modal({
-   dismissible: true
- });
-   $(document).ready(function(){
-       $("#modal1").modal('open');
-   });
-
-</script>
 
   </body>
 </html>

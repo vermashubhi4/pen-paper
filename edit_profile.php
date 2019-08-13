@@ -32,10 +32,9 @@
      header("Location:profile.php?uname: ".$uname."?profilepic: ". $pp);
   }
 
-
-  if(isset($_POST['editbio']))
+  if(isset($_POST['textarea2']))
   {
-    $bio=$_POST['editbio'];
+    $bio=$_POST['textarea2'];
     session_start();
     $uname=$_SESSION["USERNAME"];
     $qry = "UPDATE `userinfo` SET `bio`='$bio' WHERE `username`='$uname'";
