@@ -17,8 +17,8 @@ include 'dbconnect.php';
      }
    // $qry2= "SELECT `posts` FROM `userposts` WHERE `username`='$uname'";
    // $result2=mysqli_query($conn,$qry2);
-
-      header("Location:profile.php?msg: ".$posts);
+      header("Location:profile.php");
+      // header("Location:profile.php?msg: ".$posts);
  }
  else {
    echo 'Input some posts';

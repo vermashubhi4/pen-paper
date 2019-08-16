@@ -42,9 +42,25 @@
    <div  id="avatar">
      <!-- <img src="upload/PhotoGrid_1467199291609.jpg" alt="Avatar" class="circle avatar " > -->
    </div>
-   <input type="file" name="file" >
-   <input type="submit" value="Upload image" name="upload" >
+   <input id="file" type="file" name="file" >
+   <input type="submit" value="Upload image" name="upload" id="upload" >
  </form>
+
+ <script type="text/javascript">
+ $(document).ready(function() {
+  $('#upload').bind("click",function()
+  {
+      var imgVal = $('#file').val();
+      if(imgVal=='')
+      {
+          alert("empty input file");
+            return false;
+      }
+      return true;
+
+  });
+});
+ </script>
  <?php
 
  $uname=$_SESSION["USERNAME"];
@@ -217,6 +233,8 @@ if (mysqli_num_rows($result2) > 0) {
  var iDiv = document.createElement('div');
  iDiv.id = 'new_post';
  iDiv.className = 'row';
+ iDiv.classList.add('newpost');
+
  var x=document.getElementsByClassName('userpost');
  x[0].appendChild(iDiv);
 
@@ -227,7 +245,7 @@ if (mysqli_num_rows($result2) > 0) {
  // The variable iDiv is still good... Just append to it.
  iDiv.appendChild(innerDiv);
 
- innerDiv.innerHTML="<?php echo $row['posts'];?>";
+ innerDiv.innerHTML=`<?php echo $row['posts'];?>`;
 
  </script>
 <?php

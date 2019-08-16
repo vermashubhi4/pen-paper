@@ -188,7 +188,9 @@ vertical-align: middle;
   /* padding-left: 50px; */
   align-items: center;
 }
-
+.newpost{
+color: red;
+}
 /*profile.html end*/
 
 

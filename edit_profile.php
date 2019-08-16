@@ -1,5 +1,10 @@
 <?php
  include 'dbconnect.php';
+ if($_FILES["file"]["error"] != 0)
+ {
+   $msg="NO image selected for uploading";
+   header("Location:profile.php?msg: ".$msg);
+ }
   if(isset($_POST['upload']))
   {
     session_start();
@@ -12,6 +17,8 @@
     $file_store ="upload/".$file_name;
 
     move_uploaded_file($file_temp_loc,$file_store);
+  //  echo $file_temp_loc;
+    echo $file_store;
     $qry = "UPDATE `userinfo` SET `profilepic`='$file_store' WHERE `username`='$uname'";
     $result=mysqli_query($conn,$qry);
     // $qry2="SELECT `profilepic` FROM `userinfo` WHERE `username`='$uname'";
@@ -29,7 +36,7 @@
     //    echo "wtf";
     //  }
     // print_r($file);
-     header("Location:profile.php?uname: ".$uname."?profilepic: ". $pp);
+    header("Location:profile.php?uname: ".$uname."?profilepic: ". $pp);
   }
 
   if(isset($_POST['textarea2']))
