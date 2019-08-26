@@ -13,7 +13,7 @@ include 'dbconnect.php';
    if($result)
       echo"true";
      else {
-       echo "Error: " . $qry . "<br>" . mysqli_error($con);
+       echo "Error: " . $qry . "<br>" . mysqli_error($conn);
      }
    // $qry2= "SELECT `posts` FROM `userposts` WHERE `username`='$uname'";
    // $result2=mysqli_query($conn,$qry2);

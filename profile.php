@@ -10,6 +10,8 @@
     <title></title>
     <link rel="stylesheet" href="assets/materialize/css/materialize.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -213,7 +215,7 @@ dguqdblqkqax
 
 <?php
  $uname=$_SESSION["USERNAME"];
-$qry2="SELECT `posts` FROM `userposts` WHERE `username`='$uname' ORDER BY `Post_id` DESC";
+$qry2="SELECT `posts`,`Post_id` FROM `userposts` WHERE `username`='$uname' ORDER BY `Post_id` DESC";
 $result2=mysqli_query($conn,$qry2);
 if($result2)
    echo "";
@@ -224,28 +226,86 @@ if (mysqli_num_rows($result2) > 0) {
    // array_reverse($result2);
 
          while($row = mysqli_fetch_assoc($result2)) {
-
+        //    echo `<div id = 'new_post' class='row'>
+        //           <div  id='Post_id' class='col s1' hidden>
+        //            <p style="visibility: hidden">`.$row['Post_id'].`</p>
+        //           </div>
+        //            <div class='col s9'>
+        //              `.$row['posts'].`
+        //            </div>
+        //          </div>`;
+        //          echo "<br><br>";
+        //   }
+        // }
           //  echo $row["posts"]. "<br>";}}
  ?>
 
+ <!-- <script type="text/javascript">
+ document.getElementById('new_post').style.backgroundColor = "red";
+ </script> -->
+
  <script type="text/javascript">
- var i
+ var i;
+ var f = document.createElement("form");
+  f.setAttribute('method',"post");
+  f.setAttribute('action',"edit_post.php");
+
  var iDiv = document.createElement('div');
  iDiv.id = 'new_post';
  iDiv.className = 'row';
+ iDiv.style.backgroundColor = "#ebebe0";
+
  iDiv.classList.add('newpost');
 
  var x=document.getElementsByClassName('userpost');
- x[0].appendChild(iDiv);
+ x[0].appendChild(f);
+
+  f.appendChild(iDiv);
+
+
 
  // Now create and append to iDiv
- var innerDiv = document.createElement('div');
- innerDiv.className = 'col s10';
+ // var innerDiv = document.createElement('div');
+ // innerDiv.className = 'col s6';
+ // innerDiv.setAttribute('name',"post");
+ //
+ // // The variable iDiv is still good... Just append to it.
+ // iDiv.appendChild(innerDiv);
 
- // The variable iDiv is still good... Just append to it.
- iDiv.appendChild(innerDiv);
+ var postId=document.createElement('div');
+ postId.setAttribute('name',"postid");
+ postId.className = 'col s1';
+  // postId.style.display = "none";
+  iDiv.appendChild(postId);
+ postId.innerHTML=`<?php echo $row['Post_id'];?>`;
 
- innerDiv.innerHTML=`<?php echo $row['posts'];?>`;
+ //innerDiv.appendChild(postId);
+
+ var posts=document.createElement('div');
+ posts.setAttribute('name',"post");
+ posts.className = 'col s5';
+ // postId.style.display = "none";
+ iDiv.appendChild(posts);
+ posts.innerHTML=`<?php echo $row['posts'];?>`;
+
+ var b1 = document.createElement("input"); //input element, Submit button
+ b1.setAttribute('type',"submit");
+ b1.setAttribute('value',"Edit");
+ b1.setAttribute('name',"edit");
+ b1.className = 'col s2';
+ // b1.classList.add('fa fa-edit');
+
+ var b2 = document.createElement("input"); //input element, Submit button
+ b2.setAttribute('type',"submit");
+ b2.setAttribute('value',"Delete");
+ b2.setAttribute('name',"delete");
+ b2.className = 'col s2';
+
+
+ iDiv.appendChild(b1);
+ iDiv.appendChild(b2);
+
+ // innerDiv.innerHTML=`<?php //echo $row['posts'];?>`;
 
  </script>
 <?php

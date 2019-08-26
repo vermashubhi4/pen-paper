@@ -188,8 +188,12 @@ vertical-align: middle;
   /* padding-left: 50px; */
   align-items: center;
 }
-.newpost{
-color: red;
+#newpost{
+color: red !important;
+}
+
+#Post_id{
+  visibility: hidden;
 }
 /*profile.html end*/
 
