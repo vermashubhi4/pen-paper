@@ -226,25 +226,31 @@ if (mysqli_num_rows($result2) > 0) {
    // array_reverse($result2);
 
          while($row = mysqli_fetch_assoc($result2)) {
-        //    echo `<div id = 'new_post' class='row'>
-        //           <div  id='Post_id' class='col s1' hidden>
-        //            <p style="visibility: hidden">`.$row['Post_id'].`</p>
-        //           </div>
-        //            <div class='col s9'>
-        //              `.$row['posts'].`
-        //            </div>
-        //          </div>`;
-        //          echo "<br><br>";
-        //   }
-        // }
-          //  echo $row["posts"]. "<br>";}}
+           echo '<form action="edit_post.php" method="post">
+                 <div id = "new_post" class="row">
+                  <div  id="Post_id" class="col s1" >
+                   <p style="display: none">'.$row['Post_id'].'</p>
+                  </div>
+                   <div class="col s5">
+                     '.$row['posts'].'
+                   </div>
+                    <button class="btn waves-effect waves-light editpost" type="submit" >Edit</button>
+
+                   <button class="btn waves-effect waves-light deletepost" type="submit" >Delete</button>
+
+                 </div>
+                 </form>';
+                 echo "<br><br>";
+          }
+        }
+           // echo $row["posts"]. "<br>";}}
  ?>
 
  <!-- <script type="text/javascript">
  document.getElementById('new_post').style.backgroundColor = "red";
  </script> -->
 
- <script type="text/javascript">
+ <!-- <script type="text/javascript">
  var i;
  var f = document.createElement("form");
   f.setAttribute('method',"post");
@@ -262,9 +268,9 @@ if (mysqli_num_rows($result2) > 0) {
 
   f.appendChild(iDiv);
 
+ -->
 
-
- // Now create and append to iDiv
+ <!-- // Now create and append to iDiv
  // var innerDiv = document.createElement('div');
  // innerDiv.className = 'col s6';
  // innerDiv.setAttribute('name',"post");
@@ -307,10 +313,10 @@ if (mysqli_num_rows($result2) > 0) {
 
  // innerDiv.innerHTML=`<?php //echo $row['posts'];?>`;
 
- </script>
+ <!-</script> -->
 <?php
- }
-}
+//  }
+// }
 ?>
 
   </div>
