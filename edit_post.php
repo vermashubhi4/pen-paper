@@ -4,23 +4,28 @@
  if(isset($_POST['edit']))
  {
    $post=$_POST['post'];
+   $postid=$_POST['postid'];
    session_start();
    $uname=$_SESSION["USERNAME"];
-   $qry = "UPDATE `userposts` SET `posts`='$post' WHERE `username`='$uname'";
+   $qry = "UPDATE `userposts` SET `posts`='pph' WHERE `Post_id`='$postid'";
    $result=mysqli_query($conn,$qry);
-   header("Location:profile.php");
+   // header("Location:profile.php");
  }
  if(isset($_POST['delete']))
  {
-   session_start();
-   $uname=$_SESSION["USERNAME"];
+   // print_r($_POST['post']);
+   // print_r($_POST['postid']);
+   // exit("error");
    $post=$_POST['post'];
    $postid=$_POST['postid'];
+   session_start();
+   $uname=$_SESSION["USERNAME"];
+
 
    $qry= "DELETE FROM `userposts` WHERE `username`='$uname' AND `posts`='$post' AND `Post_id`='$postid' limit 1";
    $result=mysqli_query($conn,$qry);
    if($result)
-      echo "";
+      echo "deleted";
    else {
        echo "Error: " . $qry . "<br>" . mysqli_error($conn);
      }
@@ -34,6 +39,9 @@
   // else {
   //     echo "Error: " . $qry2 . "<br>" . mysqli_error($conn);
   //   }
-   // header("Location:profile.php");
+   header("Location:profile.php");
+ }
+ else {
+   echo "wtf!!!";
  }
  ?>

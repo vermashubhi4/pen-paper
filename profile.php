@@ -226,17 +226,20 @@ if (mysqli_num_rows($result2) > 0) {
    // array_reverse($result2);
 
          while($row = mysqli_fetch_assoc($result2)) {
+             $postid=$row['Post_id'];
+             $post=$row['posts'];
            echo '<form action="edit_post.php" method="post">
                  <div id = "new_post" class="row">
                   <div  id="Post_id" class="col s1" >
-                   <p style="display: none">'.$row['Post_id'].'</p>
-                  </div>
-                   <div class="col s5">
-                     '.$row['posts'].'
-                   </div>
-                    <button class="btn waves-effect waves-light editpost" type="submit" >Edit</button>
+                  <input type="text" name="postid" value='?> <?php echo $row['Post_id']?>
+             <?php
+                echo ' "display: none"> </div>
+                   <div name="post" class="col s5" >
+                    <input type="text" name="post" value='?> <?php echo $row['posts']?>
 
-                   <button class="btn waves-effect waves-light deletepost" type="submit" >Delete</button>
+            <?php      echo ' > </div>
+                    <input class="editpost" type="submit" name="edit" value="EDIT" >
+                   <input class="deletepost" type="submit" name="delete" value="DELETE">
 
                  </div>
                  </form>';
@@ -245,6 +248,9 @@ if (mysqli_num_rows($result2) > 0) {
         }
            // echo $row["posts"]. "<br>";}}
  ?>
+
+
+
 
  <!-- <script type="text/javascript">
  document.getElementById('new_post').style.backgroundColor = "red";
